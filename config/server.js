@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 //indicar onde estarão os arquivos estáticos a serem carregados
-app.use(express.static('./app/public'));
+app.use(express.static('./app/public/news_blog_template'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());

@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 	<%- include('../partials/head'); %>
@@ -7,87 +7,158 @@
 
 <body>
 
-	<%- include('../partials/navbar'); %>
-
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-8">
-					<div class="noticia_wrapper">
-						<span class="noticia_autor">
-							<%=noticias[0].autor%>
-						</span>
-						<a href="noticia?id_noticia=<%=noticias[0].id_noticia%>" class="noticia_titulo">
-							<%=noticias[0].titulo%>
-						</a>
-						<span class="noticia_data">
-							<%=noticias[0].data_noticia%>
-								<!-- <%= moment(noticias[0].data_noticia).format('DD/MM/YYYY')%> -->
-						</span>
-						<br />
-						<p class="noticia_resumo">
-							<%=noticias[0].resumo%>
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="noticia_wrapper">
-						<span class="noticia_autor">
-							<%=noticias[1].autor%>
-						</span>
-						<a href="noticia?id_noticia=<%=noticias[1].id_noticia%>" class="noticia_titulo">
-							<%=noticias[1].titulo%>
-						</a>
-						<span class="noticia_data">
-							<%=noticias[1].data_noticia%>
-						</span>
-
-						<br />
-						<p class="noticia_resumo">
-							<%=noticias[1].resumo%>
-						</p>
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<%- include('../partials/sidebar'); %>
+		<div id="colorlib-main">
+			<div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="js-fullheight d-flex justify-content-center align-items-center">
+					<div class="col-md-8 text text-center">
+						<div class="img mb-4" style="background-image: url(images/programador.jpg);"></div>
+						<div class="desc">
+							<h2 class="subheading">Olá, eu sou</h2>
+							<h1 class="mb-4">Vinicius Ferreira</h1>
+							<p class="mb-4">Sou um simples programador que vive longe de tudo e de todos, imerso no
+								mundo vitual em busca dos conhecimentos desconhecidos até então por mim.<br>Quanto mais
+								busco, mais encontro. E quanto mais encontro, mais facinado fico
+								por esse mundo que não para de evoluir. Me perco muitas vezes, mas ainda sim sempre dou
+								um jeito de agarrar com minhas próprias mãos aquilo que tantas vezes de mim escapa.</p>
+							<p><a href="#" class="btn-custom">More About Me <span
+										class="ion-ios-arrow-forward"></span></a></p>
+						</div>
 					</div>
 				</div>
 			</div>
+			<section class="ftco-section">
+				<div class="container">
+					<div class="row justify-content-center mb-5 pb-2">
+						<div class="col-md-7 heading-section text-center ftco-animate">
+							<h2 class="mb-4">Notícias</h2>
+							<p>O Universo é eletrônico, e as viagens no tempo são uma perfeita interação entre aquilo
+								que chamamos de real e virtual.</p>
+						</div>
+					</div>
+					<div class="row">
 
-			<div class="row">
+						<%for(var i=0;i < noticias.length; i++){%>
+							<div class="col-md-4">
+								<div class="blog-entry ftco-animate">
+									<a href="#" class="img img-2"
+										style="background-image: url(images/image_1.jpg);"></a>
+									<div class="text text-2 pt-2 mt-3">
+										<span class="category mb-3 d-block"><a href="#">
+												<%=noticias[i].categoria%>
+											</a></span>
+										<h3 class="mb-4"><a href="noticia?id_noticia=<%=noticias[i].id_noticia%>">
+												<%=noticias[i].titulo%>
+											</a></h3>
+										<p class="mb-4">
+											<%=noticias[i].resumo%>
+										</p>
+										<div class="author mb-4 d-flex align-items-center">
+											<a href="#" class="img"
+												style="background-image: url(images/person_2.jpg);"></a>
+											<div class="ml-3 info">
+												<span>Escrito por</span>
+												<h3><a href="#">
+														<%=noticias[i].autor%>
+													</a>, <span>
+														<%= moment(noticias[i].data_noticia).format('MMM. DD, YYYY')%>
+													</span></h3>
+											</div>
+										</div>
+										<div class="meta-wrap align-items-center">
+											<!-- <div class="half order-md-last">
+												<p class="meta">
+													<span><i class="icon-heart"></i>3</span>
+													<span><i class="icon-eye"></i>100</span>
+													<span><i class="icon-comment"></i>5</span>
+												</p>
+											</div> -->
+											<div class="half">
+												<p><a href="noticia?id_noticia=<%=noticias[i].id_noticia%>" class="btn py-2">Continue lendo <span
+															class="ion-ios-arrow-forward"></span></a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<%}%>
 
-				<%for(var i=2;i < noticias.length; i++){%>
-					<div class="col-md-4">
-						<div class="noticia_wrapper">
-							<span class="noticia_autor">
-								<%=noticias[i].autor%>
-							</span>
-							<a href="noticia?id_noticia=<%=noticias[i].id_noticia%>" class="noticia_titulo">
-								<%=noticias[i].titulo%>
-							</a>
-							<span class="noticia_data">
-								<%=noticias[i].data_noticia%>
-							</span>
+					</div>
+				</div>
+			</section>
+			<footer class="ftco-footer ftco-bg-dark ftco-section">
+				<div class="container px-md-5">
+					<div class="row mb-5">
+						<div class="col-md">
+							<div class="ftco-footer-widget mb-4 ml-md-4">
+								<h2 class="ftco-heading-2">Category</h2>
+								<ul class="list-unstyled categories">
+									<li><a href="#">Photography <span>(6)</span></a></li>
+									<li><a href="#">Fashion <span>(8)</span></a></li>
+									<li><a href="#">Technology <span>(2)</span></a></li>
+									<li><a href="#">Travel <span>(2)</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="ftco-footer-widget mb-4">
+								<h2 class="ftco-heading-2">Archives</h2>
+								<ul class="list-unstyled categories">
+									<li><a href="#">October 2018 <span>(6)</span></a></li>
+									<li><a href="#">September 2018 <span>(6)</span></a></li>
+									<li><a href="#">August 2018 <span>(8)</span></a></li>
+									<li><a href="#">July 2018 <span>(2)</span></a></li>
+									<li><a href="#">June 2018 <span>(7)</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="ftco-footer-widget mb-4">
+								<h2 class="ftco-heading-2">Have a Questions?</h2>
+								<div class="block-23 mb-3">
+									<ul>
+										<li><span class="icon icon-map-marker"></span><span class="text">203 Fake St.
+												Mountain View, San Francisco, California, USA</span></li>
+										<li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392
+													3929 210</span></a></li>
+										<li><a href="#"><span class="icon icon-envelope"></span><span
+													class="text">info@yourdomain.com</span></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
 
-							<br />
-							<p class="noticia_resumo">
-								<%=noticias[i].resumo%>
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script> All rights reserved | This
+								template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
+									href="https://colorlib.com" target="_blank">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</p>
 						</div>
 					</div>
-					<%}%>
-			</div>
+				</div>
+			</footer>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
 
-			<div class="row ver_mais">
-				<button type="button" class="btn btn-default"><a href="noticias">Ver todas as notícias</a></button>
-			</div>
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
 
-		</div>
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-			crossorigin="anonymous"></script>
-		<!-- Option 1: Bootstrap Bundle with Popper -->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script> -->
+	<%- include('../partials/scripts'); %>
 
 </body>
 
