@@ -12,6 +12,7 @@ var consign = require('consign');
 var bodyParser = require('body-parser');
 //realizar a validação dos dados de entrada
 var expressValidator = require('express-validator');
+
 var app = express();
 
 //MOTOR DE GERAÇÃO DE VIEWS

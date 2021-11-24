@@ -30,6 +30,10 @@ NoticiasDAO.prototype.getNoticiasModa = function (callback) {
     this._connection.query("select * from noticias where categoria like '%Moda%' order by data_noticia DESC", callback);
 }
 
+NoticiasDAO.prototype.getCategoriasEQtd = function (callback) {
+    this._connection.query("select count(id_noticia) as quantidade,categoria from noticias group by categoria", callback);
+}
+
 module.exports = function () {
     return NoticiasDAO;
 }
