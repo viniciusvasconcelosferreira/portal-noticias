@@ -34,6 +34,14 @@ NoticiasDAO.prototype.getCategoriasEQtd = function (callback) {
     this._connection.query("select count(id_noticia) as quantidade,categoria from noticias group by categoria", callback);
 }
 
+NoticiasDAO.prototype.getDatasEQtd = function (callback) {
+    this._connection.query("select count(id_noticia) as quantidade,data_noticia from noticias group by month(data_noticia)", callback);
+}
+
+NoticiasDAO.prototype.getNoticiasRand = function(callback){
+    this._connection.query("select * from noticias ORDER BY rand() limit 3", callback);
+}
+
 module.exports = function () {
     return NoticiasDAO;
 }

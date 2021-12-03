@@ -2,12 +2,12 @@
     <h1 id="colorlib-logo"><a href="/">vinicius<span>.</span></a></h1>
     <nav id="colorlib-main-menu" role="navigation">
         <ul>
-            <li class="colorlib-active"><a href="/">Home</a></li>
-            <li><a href="photography.html">Fotografia</a></li>
-            <li><a href="travel.html">Viagem</a></li>
-            <li><a href="fashion.html">Moda</a></li>
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contato</a></li>
+            <li <% if(title == 'Index'){%> class="colorlib-active"<%}%>><a href="/">Home</a></li>
+            <li <% if(title == 'Fotografia'){%> class="colorlib-active"<%}%>><a href="photography.html">Fotografia</a></li>
+            <li <% if(title == 'Viagem'){%> class="colorlib-active"<%}%>><a href="/viagem">Viagem</a></li>
+            <li <% if(title == 'Moda'){%> class="colorlib-active"<%}%>><a href="fashion.html">Moda</a></li>
+            <li <% if(title == 'Sobre'){%> class="colorlib-active"<%}%>><a href="about.html">Sobre</a></li>
+            <li <% if(title == 'Contato'){%> class="colorlib-active"<%}%>><a href="contact.html">Contato</a></li>
         </ul>
     </nav>
 
