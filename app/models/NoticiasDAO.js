@@ -1,5 +1,3 @@
-var mssql = require('mssql');
-
 function NoticiasDAO(connection) {
     this._connection = connection;
 }

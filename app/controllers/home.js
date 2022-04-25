@@ -3,7 +3,7 @@ moment.locale('pt-br');
 
 module.exports.index = function (appliction, req, res) {
     var connection = appliction.config.dbConnection();
-    var noticiasModel = new appliction.app.models.NoticiasDAO(connection);
+    var noticiasModel = new appliction.app.models.NoticiasDAO_mssql(connection);
 
     noticiasModel.getNoticias(function (error, result_news) {
         var itens_autor = [];
