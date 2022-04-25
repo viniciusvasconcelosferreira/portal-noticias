@@ -2,111 +2,119 @@
 <html lang="en">
 
 <head>
-	<%- include('../partials/head'); %>
+    <%- include('../partials/head'); %>
 </head>
 
 <body>
 
-	<div id="colorlib-page">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-		<%- include('../partials/sidebar',{ title:title }); %>
-			<div id="colorlib-main">
-				<div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);"
-					data-stellar-background-ratio="0.5">
-					<div class="overlay"></div>
-					<div class="js-fullheight d-flex justify-content-center align-items-center">
-						<div class="col-md-8 text text-center">
-							<div class="img mb-4" style="background-image: url(images/programador.jpg);"></div>
-							<div class="desc">
-								<h2 class="subheading">Olá, eu sou</h2>
-								<h1 class="mb-4">Vinicius Ferreira</h1>
-								<p class="mb-4">Sou um simples programador que vive longe de tudo e de todos, imerso no
-									mundo vitual em busca dos conhecimentos desconhecidos até então por mim.<br>Quanto
-									mais
-									busco, mais encontro. E quanto mais encontro, mais facinado fico
-									por esse mundo que não para de evoluir. Me perco muitas vezes, mas ainda sim sempre
-									dou
-									um jeito de agarrar com minhas próprias mãos aquilo que tantas vezes de mim escapa.
-								</p>
-								<p><a href="#" class="btn-custom">Mais sobre mim <span
-											class="ion-ios-arrow-forward"></span></a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<section class="ftco-section">
-					<div class="container">
-						<div class="row justify-content-center mb-5 pb-2">
-							<div class="col-md-7 heading-section text-center ftco-animate">
-								<h2 class="mb-4">Notícias</h2>
-								<p>O Universo é eletrônico, e as viagens no tempo são uma perfeita interação entre
-									aquilo
-									que chamamos de real e virtual.</p>
-							</div>
-						</div>
-						<div class="row">
-							<%for(var i=0; i < noticias.length; i++){%>
-								<div class="col-md-4">
-									<div class="blog-entry ftco-animate">
-										<a href="#" class="img img-2"
-											style="background-image: url(images/<%=destaques[i]%>);"></a>
-										<div class="text text-2 pt-2 mt-3">
+<div id="colorlib-page">
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+    <%- include('../partials/sidebar',{ title:title }); %>
+    <div id="colorlib-main">
+        <div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);"
+             data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="js-fullheight d-flex justify-content-center align-items-center">
+                <div class="col-md-8 text text-center">
+                    <div class="img mb-4" style="background-image: url(images/programador.jpg);"></div>
+                    <div class="desc">
+                        <h2 class="subheading">Olá, eu sou</h2>
+                        <h1 class="mb-4">Vinicius Ferreira</h1>
+                        <p class="mb-4">Sou um simples programador que vive longe de tudo e de todos, imerso no
+                            mundo vitual em busca dos conhecimentos desconhecidos até então por mim.<br>Quanto
+                            mais
+                            busco, mais encontro. E quanto mais encontro, mais facinado fico
+                            por esse mundo que não para de evoluir. Me perco muitas vezes, mas ainda sim sempre
+                            dou
+                            um jeito de agarrar com minhas próprias mãos aquilo que tantas vezes de mim escapa.
+                        </p>
+                        <p><a href="#" class="btn-custom">Mais sobre mim <span
+                                        class="ion-ios-arrow-forward"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-2">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2 class="mb-4">Notícias</h2>
+                        <p>O Universo é eletrônico, e as viagens no tempo são uma perfeita interação entre
+                            aquilo
+                            que chamamos de real e virtual.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <% if (noticias) { %>
+                        <% for(var i = 0; i < noticias.length; i++){ %>
+                            <div class="col-md-4">
+                                <div class="blog-entry ftco-animate">
+                                    <a href="#" class="img img-2"
+                                       style="background-image: url(images/<%= destaques[i] %>);"></a>
+                                    <div class="text text-2 pt-2 mt-3">
 											<span class="category mb-3 d-block"><a href="#">
-													<%=noticias[i].categoria%>
+													<%= noticias[i].categoria %>
 												</a></span>
-											<h3 class="mb-4"><a href="noticia?id_noticia=<%=noticias[i].id_noticia%>">
-													<%=noticias[i].titulo%>
-												</a></h3>
-											<p class="mb-4">
-												<%=noticias[i].resumo%>
-											</p>
-											<div class="author mb-4 d-flex align-items-center">
-												<a href="#" class="img"
-													style="background-image: url(images/<%=itens[i]%>);"></a>
-												<div class="ml-3 info">
-													<span>Escrito por</span>
-													<h3><a href="#">
-															<%=noticias[i].autor%>
-														</a>, <span style="text-transform: capitalize;">
-															<%=moment(noticias[i].data_noticia).format('MMM. DD, YYYY')%>
+                                        <h3 class="mb-4"><a href="noticia?id_noticia=<%= noticias[i].id_noticia %>">
+                                                <%= noticias[i].titulo %>
+                                            </a></h3>
+                                        <p class="mb-4">
+                                            <%= noticias[i].resumo %>
+                                        </p>
+                                        <div class="author mb-4 d-flex align-items-center">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/<%= itens[i] %>);"></a>
+                                            <div class="ml-3 info">
+                                                <span>Escrito por</span>
+                                                <h3><a href="#">
+                                                        <%= noticias[i].autor %>
+                                                    </a>, <span style="text-transform: capitalize;">
+															<%= moment(noticias[i].data_noticia).format('MMM. DD, YYYY') %>
 														</span></h3>
-												</div>
-											</div>
-											<div class="meta-wrap align-items-center">
-												<!-- <div class="half order-md-last">
-												<p class="meta">
-													<span><i class="icon-heart"></i>3</span>
-													<span><i class="icon-eye"></i>100</span>
-													<span><i class="icon-comment"></i>5</span>
-												</p>
-											</div> -->
-												<div class="half">
-													<p><a href="noticia?id_noticia=<%=noticias[i].id_noticia%>"
-															class="btn py-2">Continue lendo <span
-																class="ion-ios-arrow-forward"></span></a></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<%}%>
+                                            </div>
+                                        </div>
+                                        <div class="meta-wrap align-items-center">
+                                            <!-- <div class="half order-md-last">
+                                            <p class="meta">
+                                                <span><i class="icon-heart"></i>3</span>
+                                                <span><i class="icon-eye"></i>100</span>
+                                                <span><i class="icon-comment"></i>5</span>
+                                            </p>
+                                        </div> -->
+                                            <div class="half">
+                                                <p><a href="noticia?id_noticia=<%= noticias[i].id_noticia %>"
+                                                      class="btn py-2">Continue lendo <span
+                                                                class="ion-ios-arrow-forward"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }else{ %>
+                        <div class="col-md-12">
+                            <p>Não há noticias cadastradas!</p>
+                        </div>
+                    <% } %>
 
-						</div>
-					</div>
-				</section>
-				<%- include('../partials/footer',{categorias: categorias, datas: datas}); %>
-			</div><!-- END COLORLIB-MAIN -->
-	</div><!-- END COLORLIB-PAGE -->
+                </div>
+            </div>
+        </section>
+        <%- include('../partials/footer',{categorias: categorias, datas: datas}); %>
+    </div><!-- END COLORLIB-MAIN -->
+</div><!-- END COLORLIB-PAGE -->
 
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" />
-		</svg></div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
-	<%- include('../partials/scripts'); %>
+<%- include('../partials/scripts'); %>
 
 </body>
 

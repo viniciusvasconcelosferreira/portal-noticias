@@ -1,3 +1,5 @@
+var mssql = require('mssql');
+
 function NoticiasDAO(connection) {
     this._connection = connection;
 }
@@ -38,7 +40,7 @@ NoticiasDAO.prototype.getDatasEQtd = function (callback) {
     this._connection.query("select count(id_noticia) as quantidade,data_noticia from noticias group by month(data_noticia)", callback);
 }
 
-NoticiasDAO.prototype.getNoticiasRand = function(callback){
+NoticiasDAO.prototype.getNoticiasRand = function (callback) {
     this._connection.query("select * from noticias ORDER BY rand() limit 3", callback);
 }
 

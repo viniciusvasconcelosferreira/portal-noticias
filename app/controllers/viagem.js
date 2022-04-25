@@ -21,7 +21,16 @@ module.exports.viagens = function (appliction, req, res) {
         noticiasModel.getCategoriasEQtd(function (error, result_categories) {
             noticiasModel.getDatasEQtd(function (error, result_dates) {
                 noticiasModel.getNoticiasRand(function (error, result_rand_news) {
-                    res.render("noticias/noticias_viagem", { noticias: result_travel_news, moment: moment, categorias: result_categories, datas: result_dates, title: 'Viagem', itens: itens_autor, destaques: itens_destaque, rand_news: result_rand_news });
+                    res.render("noticias/noticias_viagem", {
+                        noticias: result_travel_news,
+                        moment: moment,
+                        categorias: result_categories,
+                        datas: result_dates,
+                        title: 'Viagem',
+                        itens: itens_autor,
+                        destaques: itens_destaque,
+                        rand_news: result_rand_news
+                    });
                 });
             });
         });
