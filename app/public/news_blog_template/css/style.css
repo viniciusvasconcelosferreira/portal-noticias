@@ -8445,7 +8445,7 @@ textarea.form-control {
       .categories li a span, .sidelink li a span {
         position: absolute;
         right: 0;
-        top: 0;
+        /*top: 0;*/
         color: #ccc; }
     .categories li.active a, .sidelink li.active a {
       color: #000000;
