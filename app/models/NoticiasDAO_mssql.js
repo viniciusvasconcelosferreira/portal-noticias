@@ -5,6 +5,7 @@ function NoticiasDAO_mssql(connection) {
     this._connection = connection;
 }
 
+
 // mssql.connect(connection, function () {
 //     request.query('', function (error, response) {
 //         response.recordset;
@@ -14,8 +15,8 @@ function NoticiasDAO_mssql(connection) {
 
 NoticiasDAO_mssql.prototype.getNoticias = function (callback) {
     mssql.connect(this._connection, function (err) {
-        request.query('select * from noticias order by data_criacao DESC', function (error, recordset) {
-            console.log(recordset);
+        request.query('select * from noticias', function (error, response) {
+            console.log(response.recordset);
         });
     });
 }

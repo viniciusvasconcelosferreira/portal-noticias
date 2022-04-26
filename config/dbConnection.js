@@ -1,15 +1,16 @@
-//conexão com o banco de dados
+//conexão com o banco de dados mysql
 var mysql = require('mysql');
-
+//conexão com o banco de dados sql server
 var mssql = require('mssql');
 
 var path = require('path');
-const sql = require("mssql");
 
+//caminho absoluto do arquivo .env
 require('dotenv').config({
     path: path.resolve(__dirname, '.env')
 });
 
+//configuração da conexão com o banco de dados mysql
 var connMySQL = function () {
     return mysql.createConnection({
         host: process.env.MYSQL_HOST,
@@ -19,6 +20,7 @@ var connMySQL = function () {
     });
 }
 
+//configuração da conexão com o banco de dados sql server
 const config = {
     server: process.env.MSSQL_SERVER,
     database: process.env.MSSQL_DATABASE,
