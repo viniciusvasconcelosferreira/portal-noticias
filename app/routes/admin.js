@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage });
+var upload = multer({storage});
 
 module.exports = function (application) {
     application.get('/formulario_inclusao_noticia', function (req, res) {
