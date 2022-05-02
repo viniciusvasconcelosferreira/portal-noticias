@@ -66,7 +66,7 @@ To create the database, a **.sql** file was made available, containing the **bas
 
 ### Project
 
-After performing the [download](https://github.com/viniciusvasconcelosferreira/portal-noticias#download), installing and configuring the [prerequisites](https://github.com/viniciusvasconcelosferreira/portal-noticias#prerequisites) you must follow these steps:
+After performing the [download](https://github.com/viniciusvasconcelosferreira/portal-noticias/blob/master/README.en.md#download), installing and configuring the [prerequisites](https://github.com/viniciusvasconcelosferreira/portal-noticias/blob/master/README.en.md#prerequisites) you must follow these steps:
 1. Open your machine's terminal and access the project's root path.
 2. Run the `npm install` command to install the project's dependencies.
 3. During the installation procedure, open the project in the code editor and create a **.env** file in the **config** folder to configure the database access information.
