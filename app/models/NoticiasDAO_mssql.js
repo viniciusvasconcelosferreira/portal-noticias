@@ -73,7 +73,7 @@ NoticiasDAO_mssql.prototype.getCategoriasEQtd = function (callback) {
 NoticiasDAO_mssql.prototype.getDatasEQtd = function (callback) {
     mssql.connect(this._connection, function (err) {
         var request = new mssql.Request();
-        request.query('select count(id_noticia) as quantidade, MONTH(data_noticia) from noticias group by MONTH(data_noticia)', function (error, response) {
+        request.query('select count(id_noticia) as quantidade, year(data_noticia) as data_noticia from noticias group by year(data_noticia)', function (error, response) {
             callback(response.recordset);
         });
     });

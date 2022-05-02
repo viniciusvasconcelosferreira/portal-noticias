@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+<div id="colorlib-page">
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+    <%- include('../partials/sidebar',{title: title}); %>
+    <div id="colorlib-main">
+        <section class="ftco-section-2">
+            <div class="photograhy">
+                <div class="row no-gutters">
+                    <% for(var i = 0;i < noticias.length;i++){ %>
+                        <div class="col-md-3">
+                            <a href="#"
+                               class="photography-entry img d-flex justify-content-center align-items-center"
+                               style="background-image: url(images/<%= destaques[i] %>);">
+                                <div class="overlay"></div>
+                                <div class="text text-center">
+                                    <h3><%= noticias[i].titulo %></h3>
+                                    <span><%= noticias[i].categoria %></span>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+        <%- include('../partials/footer',{categorias: categorias, datas: datas, conexao: connection}); %>
+    </div><!-- END COLORLIB-MAIN -->
+</div><!-- END COLORLIB-PAGE -->
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+<%- include('../partials/scripts'); %>
+</body>
+
+</html>

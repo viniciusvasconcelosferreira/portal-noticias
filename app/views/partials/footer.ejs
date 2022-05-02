@@ -25,7 +25,7 @@
                         <% if (datas){ %>
                             <% for(var i = 0; i < datas.length; i++){ %>
                                 <li style="text-transform: capitalize;"><a href="#">
-                                        <%= moment(datas[i].data_noticia).format('MMMM YYYY') %>
+                                        <%= conexao === 'mysql' ? moment(datas[i].data_noticia).format('MMMM YYYY') : datas[i].data_noticia %>
                                         <span>(<%= datas[i].quantidade %>)</span>
                                     </a></li>
                             <% } %>

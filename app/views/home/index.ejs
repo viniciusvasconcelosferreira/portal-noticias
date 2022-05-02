@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <%- include('../partials/head'); %>
@@ -11,29 +11,7 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <%- include('../partials/sidebar',{ title:title }); %>
     <div id="colorlib-main">
-        <div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);"
-             data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
-            <div class="js-fullheight d-flex justify-content-center align-items-center">
-                <div class="col-md-8 text text-center">
-                    <div class="img mb-4" style="background-image: url(images/programador.jpg);"></div>
-                    <div class="desc">
-                        <h2 class="subheading">Olá, eu sou</h2>
-                        <h1 class="mb-4">Vinicius Ferreira</h1>
-                        <p class="mb-4">Sou um simples programador que vive longe de tudo e de todos, imerso no
-                            mundo vitual em busca dos conhecimentos desconhecidos até então por mim.<br>Quanto
-                            mais
-                            busco, mais encontro. E quanto mais encontro, mais facinado fico
-                            por esse mundo que não para de evoluir. Me perco muitas vezes, mas ainda sim sempre
-                            dou
-                            um jeito de agarrar com minhas próprias mãos aquilo que tantas vezes de mim escapa.
-                        </p>
-                        <p><a href="#" class="btn-custom">Mais sobre mim <span
-                                        class="ion-ios-arrow-forward"></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <%- include('../partials/about') %>
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-2">
@@ -100,7 +78,7 @@
                 </div>
             </div>
         </section>
-        <%- include('../partials/footer',{categorias: categorias, datas: datas}); %>
+        <%- include('../partials/footer',{categorias: categorias, datas: datas, conexao:connection}); %>
     </div><!-- END COLORLIB-MAIN -->
 </div><!-- END COLORLIB-PAGE -->
 

@@ -2,44 +2,49 @@
     <div class="sidebar-box ftco-animate">
         <h3 class="sidebar-heading">Categorias</h3>
         <ul class="categories">
-            <%for(var i=0; i < categorias.length; i++){%>
+            <% for(var i = 0; i < categorias.length; i++){ %>
                 <li><a href="#">
-                        <%=categorias[i].categoria%><span>(<%=categorias[i].quantidade%>)</span>
+                        <%= categorias[i].categoria %><span>(<%= categorias[i].quantidade %>)</span>
                     </a></li>
-                <%}%>
+            <% } %>
         </ul>
     </div>
 
     <div class="sidebar-box ftco-animate">
         <h3 class="sidebar-heading">Notícias Populares</h3>
-        <%for(var i=0;i<rand_news.length;i++){%>
+        <% for(var i = 0;i < rand_news.length;i++){ %>
             <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/<%=destaques[i]%>);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/<%= destaques[i] %>);"></a>
                 <div class="text">
-                    <h3 class="heading"><a href="<noticia?id_noticia=<%=rand_news[i].id_noticia%>"><%=rand_news[i].resumo%></a></h3>
+                    <h3 class="heading"><a
+                                href="<noticia?id_noticia=<%= rand_news[i].id_noticia %>"><%= rand_news[i].resumo %></a>
+                    </h3>
                     <div class="meta">
-                        <div style="text-transform: capitalize;"><a href="#"><span class="icon-calendar"></span> <%=moment(noticias[i].data_noticia).format('MMM. DD, YYYY')%></a></div>
-                        <div><a href="#"><span class="icon-person"></span> <%=rand_news[i].autor%></a></div>
+                        <div style="text-transform: capitalize;"><a href="#"><span
+                                        class="icon-calendar"></span> <%= moment(rand_news[i].data_noticia).format('MMM. DD, YYYY') %>
+                            </a></div>
+                        <div><a href="#"><span class="icon-person"></span> <%= rand_news[i].autor %></a></div>
                     </div>
                 </div>
             </div>
-        <%}%>
+        <% } %>
     </div>
 
     <div class="sidebar-box ftco-animate">
         <h3 class="sidebar-heading">Arquivos</h3>
         <ul class="categories">
-            <%for(var i=0; i < datas.length; i++){%>
+            <% for(var i = 0; i < datas.length; i++){ %>
                 <li style="text-transform: capitalize;"><a href="#">
-                        <%=moment(datas[i].data_noticia).format('MMMM YYYY')%><span>(<%=datas[i].quantidade%>)</span>
+                        <%= conexao === 'mysql' ? moment(datas[i].data_noticia).format('MMMM YYYY') : datas[i].data_noticia %>
+                        <span>(<%= datas[i].quantidade %>)</span>
                     </a></li>
-                <%}%>
+            <% } %>
         </ul>
     </div>
 
-
-    <div class="sidebar-box ftco-animate">
-        <h3 class="sidebar-heading">Parágrafo</h3>
-        <p>A verdadeira viagem de descobrimento não consiste em procurar novas paisagens, e sim em ter novos olhos.</p>
-    </div>
+    <% if (title === 'Viagem'){ %>
+        <%- include('../partials/travel_paragraph'); %>
+    <% }else{ %>
+        <%- include('../partials/fashion_paragraph'); %>
+    <% } %>
 </div><!-- END COL -->

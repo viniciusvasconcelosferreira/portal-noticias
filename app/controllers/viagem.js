@@ -38,7 +38,8 @@ module.exports.viagens = function (appliction, req, res) {
                         title: 'Viagem',
                         itens: itens_autor,
                         destaques: itens_destaque,
-                        rand_news: result_rand_news
+                        rand_news: result_rand_news,
+                        connection: process.env.DB_CONNECTION
                     });
                 });
             });

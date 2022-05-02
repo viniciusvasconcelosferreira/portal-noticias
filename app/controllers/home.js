@@ -39,7 +39,8 @@ module.exports.index = function (appliction, req, res) {
                     destaques: result_news !== undefined && result_news !== 'undefined' ? itens_destaque : null,
                     categorias: result_categories !== undefined && result_categories !== 'undefined' ? result_categories : null,
                     datas: result_dates !== undefined && result_dates !== 'undefined' ? result_dates : null,
-                    title: 'Index'
+                    title: 'Index',
+                    connection: process.env.DB_CONNECTION
                 });
             });
         });

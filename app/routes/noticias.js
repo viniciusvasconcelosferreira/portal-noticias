@@ -12,9 +12,19 @@ module.exports = function (application) {
 
     });
 
+    application.get('/fotografia', function (req, res) {
+        application.app.controllers.fotografia.fotografias(application, req, res);
+    });
+
     application.get('/viagem', function (req, res) {
 
         application.app.controllers.viagem.viagens(application, req, res);
+
+    });
+
+    application.get('/moda', function (req, res) {
+
+        application.app.controllers.moda.modas(application, req, res);
 
     });
 }

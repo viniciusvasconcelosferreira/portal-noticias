@@ -8,14 +8,45 @@ require('dotenv').config({
     path: path.resolve('config', '.env')
 });
 
-var moment = require('moment');
-
-module.exports.index = function (appliction, req, res) {
+module.exports.modas = function (appliction, req, res) {
     var connection = appliction.config.dbConnection();
     var noticiasModel = process.env.DB_CONNECTION === 'mysql' ? new appliction.app.models.NoticiasDAO(connection) : new appliction.app.models.NoticiasDAO_mssql(connection);
 
-    noticiasModel.getNoticiasModa(function (result) {
-        res.render("noticias/noticias_moda", {noticias: result, moment: moment});
+
+
+
+    noticiasModel.getNoticiasModa(function (result_fashion_news) {
+        var itens_autor = [];
+        var itens_destaque = [];
+        var images_autor = ['person_1.jpg', 'person_2.jpg', 'person_3.jpg', 'person_4.jpg'];
+        var images_destaque = ['image_1.jpg', 'image_2.jpg', 'image_3.jpg', 'image_4.jpg',
+            'image_5.jpg', 'image_6.jpg', 'image_7.jpg', 'image_8.jpg',
+            'image_9.jpg', 'image_10.jpg', 'image_11.jpg', 'image_12.jpg'];
+        if (result_fashion_news !== 'undefined' && result_fashion_news !== undefined) {
+            for (var i = 0; i < result_fashion_news.length; i++) {
+                var item_autor = images_autor[Math.floor(Math.random() * images_autor.length)];
+                var item_destaque = images_destaque[Math.floor(Math.random() * images_destaque.length)];
+                itens_autor.push(item_autor);
+                itens_destaque.push(item_destaque);
+            }
+        }
+        noticiasModel.getCategoriasEQtd(function (result_categories) {
+            noticiasModel.getDatasEQtd(function (result_dates) {
+                noticiasModel.getNoticiasRand(function (result_rand_news) {
+                    res.render("noticias/noticias_moda", {
+                        noticias: result_fashion_news,
+                        moment: moment,
+                        categorias: result_categories,
+                        datas: result_dates,
+                        title: 'Moda',
+                        itens: itens_autor,
+                        destaques: itens_destaque,
+                        rand_news: result_rand_news,
+                        connection: process.env.DB_CONNECTION
+                    });
+                });
+            });
+        });
     });
 
 }
