@@ -2,78 +2,93 @@
 <html lang="pt-br">
 
 <head>
-	<%- include('../partials/head'); %>
+    <%- include('../partials/head'); %>
 </head>
 
 <body>
 
-	<%- include('../partials/navbar'); %>
-
-		<div class="container">
-			<% if(validacao.length>0) {%>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="alert alert-danger">
-							<strong>Atenção!</strong>
-							<ul>
-								<%for(var i=0; i < validacao.length; i++){%>
-									<li>
-										<%= validacao[i].msg %>
-									</li>
-									<%}%>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<%}%>
-					<div class="row">
-						<div class="col-md-12">
-							<form action="/noticias/salvar" method="post" enctype="multipart/form-data">
-								<div class="form-group">
-									<label for="titulo">Título:</label>
-									<input type="text" class="form-control" id="titulo" name="titulo">
-								</div>
-
-								<div class="form-group">
-									<label for="pwd">Resumo:</label>
-									<input type="text" class="form-control" id="resumo" name="resumo">
-								</div>
-
-								<div class="form-group">
-									<label for="pwd">Autor:</label>
-									<input type="text" class="form-control" id="autor" name="autor">
-								</div>
-
-								<div class="form-group">
-									<label for="pwd">Data:</label>
-									<input type="date" class="form-control" id="data_noticia" name="data_noticia">
-								</div>
-
-								<div class="form-group">
-									<label for="pwd">Notícia:</label>
-									<textarea class="form-control" id="noticia" name="noticia"></textarea>
-								</div>
-
-								<div class="form-group">
-									<label for="pwd">Imagem de Destaque:</label>
-									<input type="file" class="form-control" id="imagem" name="imagem" accept="image/*">
-								</div>
+<div id="colorlib-page">
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+    <%- include('../partials/sidebar',{ title:title }); %>
+    <div id="colorlib-main">
+        <section class="ftco-section">
+            <div class="container">
+                <h1 class="mb-4 text-center">Cadastro de Notícia</h1>
+                <% if(validacao.length > 0) { %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger">
+                                <strong>Atenção!</strong>
+                                <ul>
+                                    <% for(var i = 0; i < validacao.length; i++){ %>
+                                        <li>
+                                            <%= validacao[i].msg %>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/noticias/salvar" method="post" enctype="multipart/form-data" class="row">
 
 
-								<button type="submit" class="btn btn-default">Cadastrar</button>
-							</form>
-						</div>
-					</div>
-		</div>
+                            <div class="form-group col-md-12">
+                                <label for="titulo" class="form-label">Titulo</label>
+                                <input type="text" class="form-control" id="titulo" name="titulo">
+                            </div>
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-			crossorigin="anonymous"></script>
-		<!-- Option 1: Bootstrap Bundle with Popper -->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script> -->
+                            <div class="form-group col-md-12">
+                                <label for="resumo" class="form-label">Resumo</label>
+                                <input type="text" class="form-control" id="resumo" name="resumo">
+                            </div>
 
+                            <div class="form-group col-md-12">
+                                <label for="autor" class="form-label">Autor</label>
+                                <input type="text" class="form-control" id="autor" name="autor">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="data_noticia" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="data_noticia" name="data_noticia">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="noticia" class="form-label">Notícia</label>
+                                <textarea class="form-control" id="noticia" name="noticia"></textarea>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="imagem" class="form-label">Destaque</label>
+                                <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*">
+                            </div>
+
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-secondary" href="/">Voltar à Página</a>
+                                <button type="submit" class="btn btn-info">Cadastrar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<%- include('../partials/scripts'); %>
 </body>
 
 </html>
