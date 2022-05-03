@@ -66,7 +66,7 @@ Para crear la base de datos, se puso a disposición un archivo **.sql** que cont
 
 ### Proyecto
 
-Luego de realizar la [descarga](https://github.com/viniciusvasconcelosferreira/portal-noticias#download), instalar y configurar los [prerrequisitos](https://github.com/viniciusvasconcelosferreira/portal-noticias#pré -requisitos) debes seguir estos pasos:
+Luego de realizar la [descarga](https://github.com/viniciusvasconcelosferreira/portal-noticias/blob/master/README.es.md#descargar), instalar y configurar los [requisitos previos](https://github.com/viniciusvasconcelosferreira/portal-noticias/blob/master/README.es.md#requisitos-previos) debes seguir estos pasos:
 1. Abra la terminal de su máquina y acceda a la ruta raíz del proyecto.
 2. Ejecute el comando `npm install` para instalar las dependencias del proyecto.
 3. Durante el procedimiento de instalación, abra el proyecto en el editor de código y cree un archivo **.env** en la carpeta **config** para configurar la información de acceso a la base de datos.
