@@ -11,22 +11,30 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <%- include('../partials/sidebar',{title: title}); %>
     <div id="colorlib-main">
-        <section class="ftco-section-2">
+        <section class="ftco-section-2" style="margin-bottom: 30%;">
             <div class="photograhy">
                 <div class="row no-gutters">
-                    <% for(var i = 0;i < noticias.length;i++){ %>
-                        <div class="col-md-3">
-                            <a href="#"
-                               class="photography-entry img d-flex justify-content-center align-items-center"
-                               style="background-image: url(images/<%= destaques[i] %>);">
-                                <div class="overlay"></div>
-                                <div class="text text-center">
-                                    <h3><%= noticias[i].titulo %></h3>
-                                    <span><%= noticias[i].categoria %></span>
-                                </div>
-                            </a>
+                    <% if (noticias.length > 0) { %>
+                        <% for(var i = 0;i < noticias.length;i++){ %>
+                            <div class="col-md-3">
+                                <a href="#"
+                                   class="photography-entry img d-flex justify-content-center align-items-center"
+                                   style="background-image: url(images/<%= destaques[i] %>);">
+                                    <div class="overlay"></div>
+                                    <div class="text text-center">
+                                        <h3><%= noticias[i].titulo %></h3>
+                                        <span><%= noticias[i].categoria %></span>
+                                    </div>
+                                </a>
+                            </div>
+                        <% } %>
+                    <<% } else { %>
+                        <div class="col-md-12">
+                            <div class="alert alert-primary text-center" role="alert">
+                                <p style="margin: 10px;">Não há noticias da categoria <em>Fotografia</em> cadastradas!</p>
+                            </div>
                         </div>
-                    <% } %>
+                     <% } %> 
                 </div>
             </div>
         </section>

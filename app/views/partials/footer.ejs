@@ -6,7 +6,7 @@
                     <h2 class="ftco-heading-2">Categorias
                     </h2>
                     <ul class="list-unstyled categories">
-                        <% if (categorias){ %>
+                        <% if (categorias.length > 0){ %>
                             <% for(var i = 0; i < categorias.length; i++){ %>
                                 <li><a href="#">
                                         <%= categorias[i].categoria %><span>(<%= categorias[i].quantidade %>)</span>
@@ -22,7 +22,7 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Arquivos</h2>
                     <ul class="list-unstyled categories">
-                        <% if (datas){ %>
+                        <% if (datas.length > 0){ %>
                             <% for(var i = 0; i < datas.length; i++){ %>
                                 <li style="text-transform: capitalize;"><a href="#">
                                         <%= conexao === 'mysql' ? moment(datas[i].data_noticia).format('MMMM YYYY') : datas[i].data_noticia %>

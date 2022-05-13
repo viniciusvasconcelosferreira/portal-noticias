@@ -17,41 +17,47 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="row">
-
-                            <% for(var i = 0;i < noticias.length;i++){ %>
-                                <div class="col-md-12">
-                                    <div class="blog-entry ftco-animate">
-                                        <a href="#" class="img"
-                                           style="background-image: url(images/<%= destaques[i] %>);"></a>
-                                        <div class="text pt-2 mt-3">
-                                            <span class="category mb-1 d-block"><a
-                                                        href="#"><%= noticias[i].categoria %></a></span>
-                                            <h3 class="mb-4"><a
-                                                        href="noticia?id_noticia=<%= noticias[i].id_noticia %>"><%= noticias[i].titulo %></a>
-                                            </h3>
-                                            <p class="mb-4"><%= noticias[i].resumo %></p>
-                                            <div class="author mb-4 d-flex align-items-center">
-                                                <a href="#" class="img"
-                                                   style="background-image: url(images/<%= itens[i] %>);"></a>
-                                                <div class="ml-3 info">
-                                                    <span>Escrito por</span>
-                                                    <h3><a href="#"><%= noticias[i].autor %></a>, <span
-                                                                style="text-transform: capitalize;"><%= moment(noticias[i].data_noticia).format('MMM. DD, YYYY') %></span>
-                                                    </h3>
+                            <% if (noticias.length > 0) { %>
+                                <% for(var i = 0;i < noticias.length;i++){ %>
+                                    <div class="col-md-12">
+                                        <div class="blog-entry ftco-animate">
+                                            <a href="#" class="img"
+                                               style="background-image: url(images/<%= destaques[i] %>);"></a>
+                                            <div class="text pt-2 mt-3">
+                                                <span class="category mb-1 d-block"><a
+                                                            href="#"><%= noticias[i].categoria %></a></span>
+                                                <h3 class="mb-4"><a
+                                                            href="noticia?id_noticia=<%= noticias[i].id_noticia %>"><%= noticias[i].titulo %></a>
+                                                </h3>
+                                                <p class="mb-4"><%= noticias[i].resumo %></p>
+                                                <div class="author mb-4 d-flex align-items-center">
+                                                    <a href="#" class="img"
+                                                       style="background-image: url(images/<%= itens[i] %>);"></a>
+                                                    <div class="ml-3 info">
+                                                        <span>Escrito por</span>
+                                                        <h3><a href="#"><%= noticias[i].autor %></a>, <span
+                                                                    style="text-transform: capitalize;"><%= moment(noticias[i].data_noticia).format('MMM. DD, YYYY') %></span>
+                                                        </h3>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="meta-wrap d-md-flex align-items-center">
-                                                <div class="half">
-                                                    <p><a href="noticia?id_noticia=<%= noticias[i].id_noticia %>"
-                                                          class="btn btn-primary p-3 px-xl-4 py-xl-3">Continue lendo</a>
-                                                    </p>
+                                                <div class="meta-wrap d-md-flex align-items-center">
+                                                    <div class="half">
+                                                        <p><a href="noticia?id_noticia=<%= noticias[i].id_noticia %>"
+                                                              class="btn btn-primary p-3 px-xl-4 py-xl-3">Continue lendo</a>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                <% } %>
+                            <% } else { %>
+                                <div class="col-md-12">
+                                    <div class="alert alert-primary text-center" role="alert">
+                                        <p style="margin: 10px;">Não há noticias da categoria <em>Moda</em> cadastradas!</p>
+                                    </div>
                                 </div>
                             <% } %>
-
                         </div>
                     </div><!-- END-->
                     <%- include('../partials/column',{categorias: categorias, datas: datas, rand_news: rand_news, moment: moment,conexao: connection,title: title}); %>
