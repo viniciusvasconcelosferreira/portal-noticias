@@ -3,6 +3,8 @@ var mysql = require('mysql');
 //conexão com o banco de dados sql server
 var mssql = require('mssql');
 
+var mongoose = require('mongoose');
+
 var path = require('path');
 
 //caminho absoluto do arquivo .env
@@ -38,6 +40,27 @@ var connSqlServer = function () {
     return config;
 };
 
+// mongoose.connect('mongodb://localhost:27017/portal_noticias')
+mongoose.connect('mongodb://' + process.env.MONGO_HOST + ':' + process.env.MONGO_PORT + '/' + process.env.MONGO_DATABASE)
+var noticiasSchemaMongoDB = new mongoose.Schema({
+    titulo: String,
+    noticia: String,
+    resumo: String,
+    autor: String,
+    data_noticia: Date,
+    categoria: String,
+    imagem: String,
+    data_criacao: Date,
+}, {
+    collection: 'noticias'
+});
+
 module.exports = function () {
-    return process.env.DB_CONNECTION === 'sqlsrv' ? connSqlServer : connMySQL;
+    if (process.env.DB_CONNECTION === 'sqlsrv') {
+        return connSqlServer;
+    } else if (process.env.DB_CONNECTION === 'mysql') {
+        return connMySQL;
+    } else {
+        return noticiasSchemaMongoDB;
+    }
 }
